@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cli": "ts-node src/cli.ts",
-    "mine": "yarn cli mine ierc-m66"
+    "mine": "yarn cli mine ierc-m6"
   },
   "keywords": [],
   "author": "",
