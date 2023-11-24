@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cli": "ts-node src/cli.ts"
+    "cli": "ts-node src/cli.ts",
+    "mine": "yarn cli mine ierc-m66"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@types/node": "^20.6.5",
     "@types/spinnies": "^0.5.1",
     "dotenv": "^16.3.1",
+    "prettier": "3.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
