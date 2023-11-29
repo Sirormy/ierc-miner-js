@@ -1,8 +1,6 @@
 import { ethers } from "ethers";
 import {
   GAS_PREMIUM,
-  ACCOUNT as account,
-  PRIVATE_KEY as privateKey,
   PROVIDER_RPC,
   MINE_TIMES as targetMineTimes,
 } from "../constants";
@@ -17,8 +15,10 @@ import { generateNonce } from "../utils";
 import { readFile } from "fs/promises";
 
 let unique = 0;
-export const runMine = async (tick: string) => {
+export const runMine = async (tick: string, accountIndex: number) => {
   sayMinerLog();
+  const wallets = require("../../wallet.json");
+  const privateKey = wallets[accountIndex];
   const str = await readFile("./tokens.json", "utf-8");
   const ticks = JSON.parse(str) as Record<
     string,
@@ -36,9 +36,10 @@ export const runMine = async (tick: string) => {
     throw new Error("Mining user configuration not found");
   }
 
-  logger.trace(`Start mining with ${account}`);
   const provider = new ethers.providers.JsonRpcProvider(PROVIDER_RPC);
   const miner = new ethers.Wallet(privateKey, provider);
+  const account = miner.address;
+  logger.trace(`Start mining with ${account}`);
 
   const network = await provider.getNetwork();
   logger.trace(`network is ${network.name} (chainID: ${network.chainId})`);

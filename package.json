@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "cli": "ts-node src/cli.ts",
-    "mine": "yarn cli mine ierc-m6"
+    "mine": "yarn cli mine ierc-m6 0",
+    "batchMine": "node ./exec.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^1.6.2",
     "bignumber.js": "^9.1.2",
